@@ -25,14 +25,14 @@ export default MyApp
 
 Run following commands and visit: [http://localhost:3000]
 
-| set env at | cmd | log in browser console | log in server terminal |
+| set env at | cmd | log in browser console | log in server terminal at build time |
 | --- | --- | --- | --- |
 | none |```npm run dev```| undefined |  |
-| both |```FOO=bar npm run dev```| undefined | bar |
-| build time|```FOO=bar npm run build; npm run start```| undefined |  |
+| both |```FOO=bar npm run dev```| undefined | bar (runtime server terminal)|
+| build time|```FOO=bar npm run build; npm run start```| undefined | bar |
 | run time|```npm run build; FOO=bar npm run start```| undefined |  |
-| both |```NEXT_PUBLIC_FOO=bar npm run dev```| bar | bar |
-| build time |```NEXT_PUBLIC_FOO=bar npm run build; npm run start```| bar |  |
+| both |```NEXT_PUBLIC_FOO=bar npm run dev```| bar | bar (runtime server terminal)|
+| build time |```NEXT_PUBLIC_FOO=bar npm run build; npm run start```| bar | bar |
 | run time |```npm run build; NEXT_PUBLIC_FOO=bar npm run start```| undefined |  |
 
 ## SSR (Server Side Rendered)
@@ -46,7 +46,7 @@ export function getServerSideProps() {
 
 Run following commands and visit: [http://localhost:3000/server]
 
-| set env at |  cmd | log in browser console | log in server terminal |
+| set env at |  cmd | log in browser console | log in server terminal at run time |
 | --- | --- | --- | --- |
 | none |```npm run dev```| undefined | undefined |
 | both|```FOO=bar npm run dev```| undefined | bar |
